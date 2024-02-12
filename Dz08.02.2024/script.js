@@ -6,12 +6,12 @@ function FirstTask(){
         "Вы любите читать книги?"
     ];
     const marks = [3, 1, 4, 1];
+    const answers = ["да","да","нет","нет"];
     let points = 0;
     alert(`Предлагаю пройти тест: необходимо ответить да или нет. Писать ответы с маленькими буквами!`);
     for(let i = 0; i < questions.length; i++){
         let userAnswer = prompt(questions[i]);
-        if (userAnswer === "да" && i < 2) points += marks[i];
-        else if(userAnswer === "нет" && i >= 2) points += marks[i];
+        if (userAnswer === answers[i]) points += marks[i];
         else alert("Неправильно!");
     }
     alert(`Поздравляю, вы набрали ${points} балла(ов).`);
@@ -22,11 +22,11 @@ function SecondTask(){
     if (!forbiddenChars.test(fullName) && fullName !== null)  alert("Ввод корректен!");
     else alert("Недопустимые символы во вводе. Пожалуйста, введите корректное ФИО.");
 }
-function ThirdTask(){
+function ThirdTask() {
     const url = new URL("http://www.ufa.com.ua/utilites/hdd/out.php?sort=2");
-    const filename = url.pathname.split('/').pop();
+    const filename = url.pathname.split('/').pop(); // Extracting filename from the path
     const urlarr = [url.protocol, url.host, url.pathname, filename, url.search];
-    alert(`${urlstr}\n\nПротокол: ${urlarr[0]}\nХост: ${urlarr[1]}\nПуть: ${urlarr[2]}\nИмя файла: ${urlarr[3]}\nСтрока запроса: ${urlarr[4]}`);
+    alert(`${url}\n\nПротокол: ${urlarr[0]}\nХост: ${urlarr[1]}\nПуть: ${urlarr[2]}\nИмя файла: ${urlarr[3]}\nСтрока запроса: ${urlarr[4]}`);
 }
 function FourthTask(){
     for (let i = 0; i < 8; i++) {
