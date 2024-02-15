@@ -1,0 +1,20 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-user-drag:none;
+    user-select:none;
+    font-family:sans-serif;
+}
+@keyframes bold{
+    from{font-weight:300;}
+    to{font-weight:bold;}
+}
+.bold{animation:.15s bold forwards;}
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+li {cursor: pointer;}
+li:hover {-weight: bold;}
+.collapsed {display: none;}
