@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" initial-scale="1.0">
+		<title>Hw20.02.2024</title>
+		<link rel='icon' href="textures/favicon.png"/>
+		<link rel="stylesheet" href="style.css"/>
+		<script src='script.js'></script>
+	</head>
+	<body>
+		<header id='mainbox'>
+			<button onclick="addNewList()" class="addlist">Добавить новый список</button>
+			<input type="text" class="textinput" id="inp1" placeholder="Текст элемента списка"><br>
+			<button onclick="insertNewList()" class="addlist">Вставить элемент списка</button>
+			<input type="text" class="textinput" id="inp2" placeholder="Текст элемента списка">
+			<input type="number" class="num" id="value1" placeholder="Индекс"><br>
+			<button onclick="changeListItemText()" class="addlist">Изменить заданный элемент списка</button>
+			<input type="text" class="textinput" id="inp3" placeholder="Текст элемента списка">
+			<input type="number" class="num" id="value2" placeholder="Индекс"><br>
+			<button onclick="addInsertedItem()" class="addlist">Добавить вложенный список</button>
+			<input type="text" class="textinput" id="inp4" placeholder="Текст элемента списка">
+			<input type="number" class="num" id="value3" placeholder="Индекс">
+			<button onclick="deleteListItem()" class="addlist">Удалить элемент списка</button>
+			<input type="number" class="num" id="value4" placeholder="Индекс">
+		</header>
+	</body>
+</html>

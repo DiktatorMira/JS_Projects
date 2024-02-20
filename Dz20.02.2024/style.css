@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-user-drag:none;
+    user-select:none;
+    font-family:sans-serif;
+}
+.nested-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+.list-item {cursor: pointer;}
+#mainbox{
+    margin:2%;
+    width:45%;
+    height:42vh;
+    border:2px solid #c3c3c3;
+    border-radius:7px;
+}
+.addlist{
+    margin:1%;
+    padding:.5em;
+    border-radius:7px;
+    outline:none;
+    font-size:1em;
+}
+.textinput{
+    margin:1%;
+    padding:.5em;
+    border-radius:7px;
+    outline:none;
+    font-size:1em;
+}
+.num{
+    margin:1%;
+    height:5vh;
+    width:15%;
+    border-radius:7px;
+    outline:none;
+    font-size:1em;
+}
