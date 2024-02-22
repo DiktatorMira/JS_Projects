@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-user-drag:none;
+    user-select:none;
+    font-family:sans-serif;
+}
+.textbox {
+    margin:1% 0 0 1%;
+    width:40%;
+    height:28vh;
+    border:2px solid gray;
+    border-radius:7px;
+    font-size:1em;
+    overflow:hidden;
+    position:relative;
+    resize:none;
+}
+table {
+    margin:10% auto;
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border:1px solid #ddd;
+    padding:8px;
+    text-align: center;
+    transition:0.15s;
+}
+th {background-color: #f2f2f2;}
+thead > tr > th:active{transform:scale(0.95);}
