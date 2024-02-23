@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" initial-scale="1.0">
+		<title>Второе задание</title>
+		<link rel='icon' href="textures/favicon.png"/>
+		<link rel="stylesheet" href="style.css"/>
+		<script defer src='script.js'></script>
+	</head>
+	<body>
+		<div class="main">
+			<h2 class="maintext">Регристрация</h2>
+			<input type="text" placeholder="Логин" class="inputs" id="login">
+			<input type="password" placeholder="Пароль" class="inputs" id="password">
+			<input type="password" placeholder="Повторить пароль" class="inputs" id="rpassword">
+			<input type="text" placeholder="Имя" class="inputs" id="name">
+			<p class="text">Пол:</p>
+			<input type="radio" name="group" class="rbutton" id="male">
+			<label for="radioButton">Мужской</label>
+			<input type="radio" name="group" class="rbutton" id="female">
+			<label for="radioButton">Женский</label>
+			<p class="text">Специализация:</p>
+			<input type="checkbox" class="check" id="design">
+			<label for="checkbox">Дизайн</label>
+			<input type="checkbox" class="check" id="proger">
+			<label for="checkbox">Программирование</label>
+			<input type="checkbox" class="check" id="admin">
+			<label for="checkbox">Администрирование</label>
+			<p class="text">Должность:</p>
+			<select id="dropdown" name="dropdown" class="inputs">
+				<option value="option1">Директор</option>
+				<option value="option2">Зам. директор</option>
+				<option value="option3">Руководитель проекта</option>
+				<option value="option4">Начальник отдела</option>
+				<option value="option5">Программист</option>
+				<option value="option6">Дизайнер</option>
+				<option value="option7">Консультант</option>
+				<option value="option8">Служащий</option>
+			</select>
+			<button class="buttons" id="active">Регистрация</button>
+		</div>
+	</body>
+</html>
