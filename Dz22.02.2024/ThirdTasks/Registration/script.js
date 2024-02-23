@@ -1,4 +1,5 @@
 let registrate = document.getElementById('active');
+let userInfoTable = document.getElementById('userInfoTable');
 
 registrate.addEventListener('click', function(e){
   let loginValue = document.getElementById('login').value;
@@ -36,14 +37,17 @@ registrate.addEventListener('click', function(e){
     return;
   }
 
-  let alertMessage = "Логин - " + loginValue + ", ";
-  alertMessage += "Имя - " + nameValue + ", ";
-  alertMessage += "Должность - " + document.getElementById('dropdown').options[document.getElementById('dropdown').selectedIndex].text + ", ";
-  alertMessage += "Пол - " + (genderMale ? "Мужской" : "Женский") + ", ";
-  alertMessage += "Специализация - ";
-  if (designCheckbox) alertMessage += "Дизайн, ";
-  if (programmingCheckbox) alertMessage += "Программирование, ";
-  if (administrationCheckbox) alertMessage += "Администрирование";
+  document.getElementById('userInfoLogin').textContent = loginValue;
+  document.getElementById('userInfoName').textContent = nameValue;
+  document.getElementById('userInfoPosition').textContent = document.getElementById('dropdown').options[document.getElementById('dropdown').selectedIndex].text;
+  document.getElementById('userInfoGender').textContent = genderMale ? "Мужской" : "Женский";
 
-  alert(alertMessage);
+  let specializationArray = [];
+  if (designCheckbox) specializationArray.push("Дизайн");
+  if (programmingCheckbox) specializationArray.push("Программирование");
+  if (administrationCheckbox) specializationArray.push("Администрирование");
+
+  document.getElementById('userInfoSpecialization').textContent = specializationArray.join(', ');
+  userInfoTable.style.display = 'table';
+  document.getElementById('bttext').style.visibility = "visible";
 });

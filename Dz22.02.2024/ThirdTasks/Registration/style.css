@@ -55,3 +55,23 @@
 }
 .main .buttons:hover{box-shadow:4px 4px 5px gray;}
 .main .buttons:active{transform:scale(0.97);}
+.bottomtext{
+    visibility:hidden;
+    margin:4% 0 0 7%;
+}
+#userInfoTable {
+    margin:3% auto;
+    border-collapse:collapse;
+    width:30%;
+}
+#userInfoTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+#userInfoTable tr:nth-child(even) {background-color: #f2f2f2;}
+#userInfoTable th {
+    background-color:#4CAF50;
+    color:white;
+    padding:8px;
+}

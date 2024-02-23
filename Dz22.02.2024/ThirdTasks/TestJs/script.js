@@ -4,6 +4,26 @@ while(true){
   if(name !== null && name.trim() !== '') break;
 }
 
+let remainingTime = 180;
+const timerElement = document.getElementById('timertext');
+
+function updateTimer() {
+  const minutes = Math.floor(remainingTime / 60);
+  const seconds = remainingTime % 60;
+  timerElement.textContent = `Оставшееся время: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  if (remainingTime <= 0) {
+    alert(`${name}, время вышло! Вы ответили на ${question} вопросов. Ваш результат: ${mark} баллов.`);
+    question = -1;
+    return;
+  }
+  remainingTime--;
+}
+const timerInterval = setInterval(updateTimer, 1000);
+
+button.addEventListener('click', function (e) {
+  if (question > 11) clearInterval(timerInterval);
+});
+
 button.addEventListener('click', function(e){
   let radioButtons = document.querySelectorAll('input[name="group"]'), index = -1;
   for (let i = 0; i < radioButtons.length; i++) {
