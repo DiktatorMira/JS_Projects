@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-user-drag:none;
+    user-select:none;
+    font-family:sans-serif;
+}
+body{background:url(textures/background/BG.jpg);}
+.topimg{margin:2% 0 0 18%;}
+.imgcontainer{
+    margin:4% auto;
+    width:90%;
+    height:35vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.image{
+    margin:0 .3% 0 .3%;
+    height:95%;
+    width:25%;
+    border:7px ridge #3c63b5;
+    border-radius:7px;
+    background-size:cover;
+    cursor:pointer;
+    transition:.15s;
+}
+.image:hover{box-shadow:3px 3px 16px #202020;}
+.image:active{transform:scale(0.97);}
