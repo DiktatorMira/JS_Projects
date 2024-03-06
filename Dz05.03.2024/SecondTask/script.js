@@ -24,16 +24,29 @@ function openPopup(index) {
         popup.document.body.addEventListener('click', function () {
             popup.close();
         });
-        // Создаем элемент для отображения информации
-        let infoElement = document.createElement('div');
-        infoElement.innerHTML = "Имя файла: " + imageName + "<br>Размеры: " + tempImage.width + "x" + tempImage.height;
-        infoElement.style.position = 'absolute';
-        infoElement.style.top = '10px';
-        infoElement.style.left = '10px';
-        infoElement.style.background = 'rgba(255, 255, 255, 0.8)';
-        infoElement.style.padding = '5px';
-        infoElement.style.borderRadius = '5px';
-        // Добавляем элемент к body дочернего окна
-        popup.document.body.appendChild(infoElement);
     };
 }
+
+document.querySelectorAll('.image').forEach(function (image, index) {
+    image.addEventListener('mouseover', function () {
+        showImageInfo(index);
+    });
+});
+function showImageInfo(index) {
+    let imageName = "P" + index + ".JPG";
+    let bigImagePath = "textures/big/" + imageName;
+    // Создаем новый объект Image для получения размеров изображения
+    let tempImage = new Image();
+    tempImage.src = bigImagePath;
+    tempImage.onload = function () {
+        // Изменяем адресную строку браузера с информацией об увеличенном изображении
+        window.location.href = "#image=" + imageName + "&width=" + tempImage.width + "&height=" + tempImage.height;
+    };
+}
+// Очищаем адресную строку, когда мышь покидает изображение
+document.querySelectorAll('.image').forEach(function (image) {
+    image.addEventListener('mouseout', function () {
+        // Возвращаемся к обычному URL (может потребоваться дополнительная логика для очистки параметров)
+        window.location.href = window.location.origin + window.location.pathname;
+    });
+});
