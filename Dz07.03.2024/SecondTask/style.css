@@ -1,0 +1,111 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-user-drag:none;
+    user-select:none;
+    font-family:sans-serif;
+}
+body{
+    display:flex;
+    justify-content:center;
+}
+.regform {
+    margin-top:7%;
+    width:30%;
+    height:60vh;
+    background:#ececec;
+    border-radius:7px;
+}
+h2{
+    margin-top:4%;
+    text-align:center;
+}
+.text{
+    margin:5% 0 0 10%;
+    width:80%;
+    height:3vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.wrspan{color:#bb0b0b;}
+#one{visibility:hidden;}
+#two{visibility:hidden;}
+#three{visibility:hidden;}
+.inp{
+    margin:1% 0 0 10%;
+    padding-left:1%;
+    width:80%;
+    height:6vh;
+    border:none;
+    border-radius:7px;
+    font-size:1em;
+    outline:none;
+    transition:.15s;
+}
+.inp:hover{box-shadow:2px 2px 8px rgb(185, 185, 185, 0.7);}
+.inp:active{transform:scale(0.97);}
+.inp:focus{border:2px solid rgb(181, 181, 181);}
+.but{
+    margin:5% 0 0 10%;
+    width:80%;
+    height:6vh;
+    background:#d7d7d7;
+    border:none;
+    border-radius:7px;
+    font-size:1em;
+    outline:none;
+    transition:.15s;
+}
+.but:hover{box-shadow:2px 2px 8px rgb(131, 131, 131, 0.8);}
+.but:active{transform:scale(0.98);}
+a{
+    text-decoration:none;
+    color:black;
+}
+h3{margin-top:1%;}
+.regform2{
+    margin-top:7%;
+    width:50%;
+    height:75vh;
+    background:#ececec;
+    border-radius:7px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.mainform{
+    width:95%;
+    height:80%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.indiv{
+    margin-right:2%;
+    width:47%;
+    height:80%;
+    border:1px solid red;
+}
+.a{
+    text-decoration:underline;
+    color:blue;
+}
+.but2{
+    margin-left:7%;
+    width:80%;
+    height:6vh;
+    background:#d7d7d7;
+    border:none;
+    border-radius:7px;
+    font-size:1em;
+    outline:none;
+    transition:.15s;
+}
+.but2:hover{box-shadow:2px 2px 8px rgb(131, 131, 131, 0.8);}
+.but2:active{transform:scale(0.98);}
+#fourth{visibility:hidden;}
+#fifth{visibility:hidden;}
+#sixth{visibility:hidden;}
+#seventh{visibility:hidden;}
