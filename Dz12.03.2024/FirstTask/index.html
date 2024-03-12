@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" initial-scale="1.0">
+		<title>Первое задание</title>
+		<link rel='icon' href="textures/favicon.png"/>
+		<link rel="stylesheet" href="style.css"/>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src='script.js'></script>
+	</head>
+	<body>
+		<form class="mainform">
+			<input class="inputs" type="number" id="lengthInput" placeholder="Введите длину строки" min="1">
+			<p class="text">Из каких символов должна состоять строка?</p>
+			<label>
+				<input class="check" type="checkbox" name="option" value="numbers"> Числа (0-9)<br>
+				<input class="check" type="checkbox" name="option" value="uppercase"> Заглавные буквы (A-Z)<br>
+				<input class="check" type="checkbox" name="option" value="lowercase"> Строчные буквы (a-z)
+			</label><br>
+			<input class="generate" type="button" value="Сгенерировать">
+			<br>
+			<input class="inputs1" type="text" readonly>
+		</form>
+	</body>
+</html>

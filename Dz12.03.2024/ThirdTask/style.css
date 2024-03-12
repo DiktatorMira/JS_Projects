@@ -1,0 +1,68 @@
+@font-face{
+	font-family:gamefont;
+	src:url(fonts/GameFont.ttf);
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-user-drag:none;
+    user-select:none;
+    font-family:gamefont, sans-serif;
+}
+body{
+    background:rgb(179, 179, 179);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.board{
+    margin-top:3%;
+    height:550px;
+    width:550px;
+    background:url(textures/background.jpg);
+    border:5px ridge #848484;
+    border-radius:7px;
+    display:flex;
+    flex-wrap:wrap;
+}
+.tile {
+    position: relative;
+    height:25%;
+    width:25%;
+    font-size:2em;
+    color:white;
+    background:#454545;
+    border:4px outset #636363;
+    border-radius:7px;
+    background-size:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+.tile:active{border:4px ridge #636363;}
+.tile.moving {transition: top 0.3s ease, left 0.3s ease;}
+.empty {
+    visibility:hidden;
+    pointer-events:none;
+}
+.btn{
+    margin-top:2%;
+    height:7vh;
+    width:15%;
+    font-size:1.1em;
+    color:white;
+    background:#454545;
+    border:4px outset #636363;
+    border-radius:7px;
+    outline:none;
+    cursor:pointer;
+    transition:.15s;
+}
+.btn:active{
+    transform:scale(0.97);
+    border:4px ridge #636363;
+}
