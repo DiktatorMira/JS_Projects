@@ -17,18 +17,34 @@ document.addEventListener('DOMContentLoaded', function () {
         // Добавляем обработчик для кнопки "Save"
         const saveButton = document.querySelector('.but2');
         saveButton.addEventListener('click', function () {
-            // Предотвращаем перезагрузку страницы по умолчанию
-            event.preventDefault();
             // Проверка имени
             const nameValue = nameInput.value.trim();
-            if (nameValue === '' || !/^[a-zA-Z]+$/.test(nameValue) || nameValue.length > 20) {
+            if(nameValue === ''){
+                document.getElementById("fourth").innerHTML = "Поле не заполнено!";
+                document.getElementById("fourth").style.visibility = "visible";
+                return;
+            } else if(nameValue.length > 20){
+                document.getElementById("fourth").innerHTML = "Слишком длинное имя!";
+                document.getElementById("fourth").style.visibility = "visible";
+                return;
+            } else if(!/^[a-zA-Z]+$/.test(nameValue)){
+                document.getElementById("fourth").innerHTML = "В имени не место цифрам!";
                 document.getElementById("fourth").style.visibility = "visible";
                 return;
             }
             document.getElementById("fourth").style.visibility = "hidden";
             // Проверка фамилии
             const lastNameValue = lastNameInput.value.trim();
-            if (lastNameValue === '' || !/^[a-zA-Z]+$/.test(lastNameValue) || lastNameValue.length > 20) {
+            if(lastNameValue === ''){
+                document.getElementById("seventh").innerHTML = "Поле не заполнено!";
+                document.getElementById("seventh").style.visibility = "visible";
+                return;
+            } else if(lastNameValue.length > 30){
+                document.getElementById("seventh").innerHTML = "Фамилия слишком длинная!";
+                document.getElementById("seventh").style.visibility = "visible";
+                return;
+            } else if(!/^[a-zA-Z]+$/.test(lastNameValue)){
+                document.getElementById("seventh").innerHTML = "В фамилии нет место цифрам!";
                 document.getElementById("seventh").style.visibility = "visible";
                 return;
             }
@@ -36,7 +52,20 @@ document.addEventListener('DOMContentLoaded', function () {
             // Проверка года рождения
             const birthYearValue = birthYearInput.value.trim();
             const currentYear = new Date().getFullYear();
-            if (birthYearValue === '' || !/^\d{4}$/.test(birthYearValue) || parseInt(birthYearValue) < 1900 || parseInt(birthYearValue) > currentYear) {
+            if(birthYearValue === ''){
+                document.getElementById("fifth").innerHTML = "Поле не заполнено!";
+                document.getElementById("fifth").style.visibility = "visible";
+                return;
+            } else if(parseInt(birthYearValue) < 1890){
+                document.getElementById("fifth").innerHTML = "Невозможно так долго жить!";
+                document.getElementById("fifth").style.visibility = "visible";
+                return;
+            } else if(parseInt(birthYearValue) > currentYear){
+                document.getElementById("fifth").innerHTML = "Нельзя родиться в будущем!";
+                document.getElementById("fifth").style.visibility = "visible";
+                return;
+            } else if(!/^\d{4}$/.test(birthYearValue)){
+                document.getElementById("fifth").innerHTML = "Должно быть 4 цифры!";
                 document.getElementById("fifth").style.visibility = "visible";
                 return;
             }
@@ -44,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Проверка номера телефона (если введено)
             const phoneValue = phoneInput.value.trim();
             if (phoneValue !== '' && (!/^\+?\d{10,12}$/.test(phoneValue))) {
+                document.getElementById("sixth").innerHTML = "Неверный формат телефона!";
                 document.getElementById("sixth").style.visibility = "visible";
                 return;
             }

@@ -1,30 +1,47 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('.regform');
+    const button = document.getElementById('butt');
     const emailInput = document.querySelector('input[type="email"]');
     const passwordInput = document.querySelector('input[type="password"]');
     const repeatPasswordInput = document.querySelectorAll('input[type="password"]')[1];
-    const errorMessages = []; // Сюда будут добавляться сообщения об ошибках
     // Выведение в консоль хранимых данных пользователя
     console.log(localStorage.getItem('userData'));
-    form.addEventListener('submit', function (event) {
+    button.addEventListener('click', function (event) {
         // Отменяем отправку формы по умолчанию
         event.preventDefault();
         // Проверка введенного почтового адреса
         const emailPattern = /^[a-zA-Z._-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
-        if (!emailPattern.test(emailInput.value)) errorMessages.push('Неверный адрес электронной почты!');
-        // Проверка введенного пароля
-        if (passwordInput.value.length < 6 || !/[a-z]/.test(passwordInput.value) || !/[A-Z]/.test(passwordInput.value) || !/\d/.test(passwordInput.value)) errorMessages.push('Неверный пароль!');
-        // Проверка совпадения пароля и повтора пароля
-        if (passwordInput.value !== repeatPasswordInput.value) errorMessages.push('Пароли не совпадают!');
-        // Отображение сообщений об ошибках
-        const errorSpan = document.getElementById("one");
-        if (errorMessages.length > 0) {
-            errorSpan.innerHTML = errorMessages.join(' ');
-            errorSpan.style.visibility = "visible";
-            errorMessages.length = 0; // Очищаем массив сообщений
+        if (!emailPattern.test(emailInput.value)) {
+            document.getElementById("one").innerHTML = 'Почта должна содержать @ и .!';
+            document.getElementById("one").style.visibility = "visible";
             return;
         }
-        errorSpan.style.visibility = "hidden";
+        document.getElementById("one").style.visibility = "hidden";
+        // Проверка введенного пароля
+        if(passwordInput.value.length < 6){
+            document.getElementById("two").innerHTML = 'Должно быть больше 6 символов!';
+            document.getElementById("two").style.visibility = "visible";
+            return;
+        } else if(!/[a-z]/.test(passwordInput.value)){
+            document.getElementById("two").innerHTML = 'Должы быть обчные буквы!';
+            document.getElementById("two").style.visibility = "visible";
+            return;
+        } else if(!/[A-Z]/.test(passwordInput.value)){
+            document.getElementById("two").innerHTML = 'Должа быть заглавная буква!';
+            document.getElementById("two").style.visibility = "visible";
+            return;
+        } else if(!/\d/.test(passwordInput.value)){
+            document.getElementById("two").innerHTML = 'Должны быть цифры!';
+            document.getElementById("two").style.visibility = "visible";
+            return;
+        }
+        document.getElementById("two").style.visibility = "hidden";
+        // Проверка совпадения пароля и повтора пароля
+        if (passwordInput.value !== repeatPasswordInput.value) {
+            document.getElementById("three").innerHTML = 'Пароли не совпадают!';
+            document.getElementById("three").style.visibility = "visible";
+            return;
+        }
+        document.getElementById("three").style.visibility = "hidden";
         // Если все проверки пройдены, сохраняем данные в Local Storage
         const userData = {
             email: emailInput.value,
@@ -34,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Перенаправляем пользователя на следующую страницу
         window.location.href = 'index2.html';
     });
-
     // Проверка наличия данных о пользователе в Local Storage при загрузке страницы
     const storedUserDataString = localStorage.getItem('userData');
     // Проверяем, что строка не пуста
