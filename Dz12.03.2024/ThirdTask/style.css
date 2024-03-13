@@ -12,6 +12,7 @@
 }
 body{
     background:rgb(179, 179, 179);
+    overflow:hidden;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -41,10 +42,8 @@ body{
     justify-content:center;
     align-items:center;
     cursor:pointer;
-    transition: all 0.3s ease;
 }
 .tile:active{border:4px ridge #636363;}
-.tile.moving {transition: top 0.3s ease, left 0.3s ease;}
 .empty {
     visibility:hidden;
     pointer-events:none;
