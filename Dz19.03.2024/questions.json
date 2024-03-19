@@ -1,0 +1,101 @@
+[
+    {
+        "question": "Как объявить переменную в JavaScript?",
+        "answers": [
+            "let название",
+            "variable название",
+            "int название"
+        ],
+        "correctIndex": 0
+    },
+    {
+        "question": "Какой метод используется для вывода информации в консоль?",
+        "answers": [
+            "console.print();",
+            "console.cout();",
+            "console.log();"
+        ],
+        "correctIndex": 2
+    },
+    {
+        "question": "Как правильно создать функцию в JavaScript?",
+        "answers": [
+            "function = myFunction() {};",
+            "function myFunction() {};",
+            "create function myFunction() {};"
+        ],
+        "correctIndex": 1
+    },
+    {
+        "question": "Какие скобки используются для создания массива?",
+        "answers": [
+            "()",
+            "{}",
+            "[]"
+        ],
+        "correctIndex": 2
+    },
+    {
+        "question": "Что такое DOM в контексте JavaScript?",
+        "answers": [
+            "Document Object Model",
+            "Data Object Model",
+            "Design Object Model"
+        ],
+        "correctIndex": 0
+    },
+    {
+        "question": "Как добавить элемент в конец массива в JavaScript?",
+        "answers": [
+            "array.add(element);",
+            "array.push(element);",
+            "array.append(element);"
+        ],
+        "correctIndex": 1
+    },
+    {
+        "question": "Как проверить тип переменной в JavaScript?",
+        "answers": [
+            "typeof название;",
+            "название.type();",
+            "typeOf(название);"
+        ],
+        "correctIndex": 2
+    },
+    {
+        "question": "Какие операторы используются для сравнения значений и их типов?",
+        "answers": [
+            "== и !=",
+            "= и !==",
+            "=== и !=="
+        ],
+        "correctIndex": 2
+    },
+    {
+        "question": "Какой метод используется для изменения стиля элемента в JavaScript?",
+        "answers": [
+            "style.setProperty()",
+            "modifyStyle()",
+            "styleChange()"
+        ],
+        "correctIndex": 2
+    },
+    {
+        "question": "Какой метод используется для удаления элемента из массива по его индексу в JavaScript?",
+        "answers": [
+            "splice()",
+            "deleteAt()",
+            "remove()"
+        ],
+        "correctIndex": 0
+    },
+    {
+        "question": "Какие методы используются для добавления и удаления класса у элемента в JavaScript?",
+        "answers": [
+            "appendClass() и deleteClass()",
+            "addClass() и removeClass()",
+            "setClass() и clearClass()"
+        ],
+        "correctIndex": 1
+    }
+]
