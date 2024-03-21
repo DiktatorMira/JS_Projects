@@ -30,10 +30,6 @@ $(function() {
         }
         remainingTime--;
     }
-    // Обработчик события клика по кнопке "Ответить"
-    button.on('click', function(e) {
-        if (question > 11) clearInterval(timerInterval); // Если вопросов больше нет, останавливаем таймер
-    });
     // Добавляем обработчик события клика по кнопке "Ответить"
     button.on('click', function(e) {
         // Получаем все чекбоксы с именем 'group' и индексы выбранных ответов
@@ -51,6 +47,7 @@ $(function() {
             });
             if (question === 11) { // Если это последний вопрос, показываем результат
                 alert(`${name}, вы прошли тест на ${mark} баллов.`);
+                clearInterval(timerInterval);
                 return;
             }
             question++;
