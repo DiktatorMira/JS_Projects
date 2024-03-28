@@ -1,3 +1,23 @@
+@keyframes appear {
+    from {
+        opacity:0; 
+        display:none;
+    }
+    to {
+        opacity:1; 
+        display:flex;
+    }
+}
+@keyframes disappear {
+    from {
+        opacity:1; 
+        display:flex;
+    }
+    to {
+        opacity:0; 
+        display:none;
+    }
+}
 *{
     margin:0;
     padding:0;
@@ -86,13 +106,27 @@ body{
 }
 .desctext{margin:2% 0 0 2%;}
 .msecond{margin:25% 0 0 5%;}
-.mainplate{
+.mthird{margin:15% 0 0 5%;}
+.overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background:linear-gradient(to top, rgb(0, 0, 0, 0.7), rgb(0, 0, 0, 0.85));
+    opacity:0;
+    z-index:10;
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+.overlay .mainplate{
     margin-top:1%;
     height:50vh;
     width:40%;
-    border:2px ridge gray;
+    background:rgb(201, 201, 201);
     border-radius:7px;
-    display:none;
+    display:flex;
     justify-content:space-between;
     align-items:center;
 }

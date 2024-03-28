@@ -1,62 +1,51 @@
 $(function(){
-    // Обработчик события нажатия на кнопку Поиск
-    $('.mfirst').click(function(){
-        // Получаем значения из полей ввода
-        let title = $('.form .inputs[type="text"]').val();
-        let type = $('.form select[name="type"]').val();
-        // Формируем URL для запроса к API OMDB
-        let url = 'http://www.omdbapi.com/?apikey=0069fc3b-de09-4b51-99c8-084cfd9cea9c&type=' + type + '&s=' + encodeURIComponent(title);
-        // Отправляем AJAX-запрос
-        fetch(url).then(response => response.json()).then(data => {
-            // Проверяем, есть ли фильмы в ответе
+    $('.mfirst').on('click', async function() {
+        let title = $('.inputs[type="text"]').val(), type = $('.inputs[name="type"]').val(), apiKey = "81b10ed9", url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${title}&type=${type}`;
+        try {
+            const response = await fetch(url), data = await response.json();
             if(data.Response === "True") {
-                // Отображаем фильмы в films plate
                 $('.films').css('display', 'flex');
-                $('.films').empty(); // Очищаем содержимое films plate
-                data.Search.forEach(function(movie){
-                    // Создаем блок для каждого фильма
-                    let movieBlock = $('<div class="plate"></div>');
-                    let image = $('<img class="image">').attr('src', movie.Poster);
-                    let desc = $('<div class="desc"></div>');
-                    let title = $('<p class="desctext"></p>').text('Название: ' + movie.Title);
-                    let year = $('<p class="desctext"></p>').text('Год выпуска: ' + movie.Year);
-                    let detailsButton = $('<input class="but msecond" type="button" value="Детали">');
-                    // Добавляем данные в блок фильма
-                    desc.append(title, year, detailsButton);
-                    movieBlock.append(image, desc);
-                    $('.films').append(movieBlock);
+                $('.films').empty();
+                let movies = data.Search;
+                movies.forEach(function(movie) {
+                    let plate = `<div class="plate">
+                                    <img class="image" src="${movie.Poster}">
+                                    <div class="desc">
+                                        <p class="desctext">Тип: ${movie.Type}</p>
+                                        <p class="desctext">${movie.Title}</p>
+                                        <p class="desctext">Год выпуска: ${movie.Year}</p>
+                                        <input class="but msecond" type="button" value="Детали">
+                                    </div>
+                                </div>`;
+                    $('.films').append(plate);
                 });
             } else {
-                // Если фильмы не найдены, отображаем сообщение
                 $('.films').css('display', 'flex');
-                $('.films').html('<p>Movie not found!</p>');
+                $('.films').html('<p class="desctext">Фильм не найден!</p>');
             }
-        })
-        .catch(error => console.log('Error:', error));
+        } catch(error) { console.error('Ошибка при выполнении запроса:', error); }
     });
-    // Обработчик события нажатия на кнопку Детали
-    $(document).on('click', '.msecond', function(){
-        // Получаем название фильма из блока и формируем ссылку
-        let movieTitle = $(this).siblings('.desc').children('p:first').text().replace('Название: ', ''), url = 'http://www.omdbapi.com/?apikey=0069fc3b-de09-4b51-99c8-084cfd9cea9c&t=' + encodeURIComponent(movieTitle);
-        // Отправляем AJAX-запрос
-        fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            // Отображаем подробную информацию о фильме в mainplate
-            $('.mainplate').css('display', 'flex');
-            $('.mainplate .desc').empty(); // Очищаем содержимое mainplate
-            $('.mainplate .image').attr('src', data.Poster);
-            $('.mainplate .desc').append(
-                $('<p class="desctext"></p>').text('Название: ' + data.Title),
-                $('<p class="desctext"></p>').text('Дата выпуска: ' + data.Release),
-                $('<p class="desctext"></p>').text('Жанр: ' + data.Genre),
-                $('<p class="desctext"></p>').text('Страна: ' + data.Country),
-                $('<p class="desctext"></p>').text('Режиссёр: ' + data.Director),
-                $('<p class="desctext"></p>').text('Авторы: ' + data.Writer),
-                $('<p class="desctext"></p>').text('Актёры: ' + data.Actors),
-                $('<p class="desctext"></p>').text('Награды: ' + data.Awards)
-            );
-        })
-        .catch(error => console.log('Error:', error));
+    $(document).on('click', '.msecond', async function() {
+        let title = $(this).closest('.plate').find('.desctext').eq(1).text(), apiKey = "81b10ed9", url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${title}`;
+        try {
+            const response = await fetch(url), data = await response.json();
+            if(data.Response === "True") {
+                $('.mainplate .image').attr('src', data.Poster);
+                $('.mainplate .desctext').eq(0).text(`Название: ${data.Title}`);
+                $('.mainplate .desctext').eq(1).text(`Дата выпуска: ${data.Released}`);
+                $('.mainplate .desctext').eq(2).text(`Жанр: ${data.Genre}`);
+                $('.mainplate .desctext').eq(3).text(`Страна: ${data.Country}`);
+                $('.mainplate .desctext').eq(4).text(`Режиссёр: ${data.Director}`);
+                $('.mainplate .desctext').eq(5).text(`Авторы: ${data.Writer}`);
+                $('.mainplate .desctext').eq(6).text(`Актёры: ${data.Actors}`);
+                $('.mainplate .desctext').eq(7).text(`Награды: ${data.Awards}`);
+                $('.overlay').css('display', 'flex');
+                $('.overlay').css('animation', 'appear .5s linear forwards');
+            } else alert("Информация о фильме не найдена!");
+        } catch(error) { console.error('Ошибка при выполнении запроса:', error); }
+    });
+    $('.mthird').on('click', function() {
+        $('.overlay').css('display', 'none');
+        $('.overlay').css('animation', 'disappear .5s linear forwards');
     });
 });
