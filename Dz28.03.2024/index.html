@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width" initial-scale="1.0">
+		<title>Заголовок</title>
+		<link rel='icon' href="textures/favicon.png"/>
+		<link rel="stylesheet" href="style.css"/>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script src='scripts/script.js' type="module"></script>
+	</head>
+	<body>
+		<section class="form">
+			<h3>Поиск:</h3>
+			<span class="text">Название:</span><input class="inputs" type="text"><br>
+			<span class="text">Тип:</span><select class="inputs" name="type">
+				<option value="movie">Фильм</option>
+				<option value="series">Серии</option>
+				<option value="episode">Эпизод</option>
+			</select>
+			<input class="but mfirst" type="button" value="Поиск">
+		</section>
+		<section class="films">
+			<div class="plate">
+				<img class="image">
+				<div class="desc">
+					<p class="desctext">Тип:</p>
+					<p class="desctext" id="titletext">Название:</p>
+					<p class="desctext">Год выпуска:</p>
+					<input class="but msecond" type="button" value="Детали">
+				</div>
+			</div>
+		</section>
+		<div class="overlay">
+			<section class="mainplate">
+				<img class="image">
+				<div class="desc">
+					<p class="desctext">Название:</p>
+					<p class="desctext">Дата выпуска:</p>
+					<p class="desctext">Жанр:</p>
+					<p class="desctext">Страна:</p>
+					<p class="desctext">Режиссёр:</p>
+					<p class="desctext">Авторы:</p>
+					<p class="desctext">Актёры:</p>
+					<p class="desctext">Награды:</p>
+					<input class="but mthird" type="button" value="Закрыть">
+				</div>
+			</section>
+		</div>
+	</body>
+</html>
